@@ -12,6 +12,10 @@ on:
       - '**/release.yml'
       - '**/FUNDING.yml'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   RE2C_VERSION: 2.2
   ZEPHIR_PARSER_VERSION: 2.12.0
